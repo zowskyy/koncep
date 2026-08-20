@@ -1,0 +1,16 @@
+node_modules
+
+# Dependencies
+node_modules/
+
+# Next.js generated files
+.next/
+out/
+
+# TypeScript generated files
+*.tsbuildinfo
+
+# Environment files
+.env
+.env.*
+!.env.example
