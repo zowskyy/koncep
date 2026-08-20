@@ -1,25 +1,5 @@
 import Link from "next/link";
-
-const proposals = [
-  {
-    title: "Open-source animation timeline editor",
-    category: "Software",
-    supporters: 1284,
-    roles: ["TypeScript developer", "UX designer", "Documentation writer"]
-  },
-  {
-    title: "Community-funded animated short",
-    category: "Film and animation",
-    supporters: 842,
-    roles: ["Animator", "Composer", "Editor"]
-  },
-  {
-    title: "Accessible community game controller",
-    category: "Physical products",
-    supporters: 419,
-    roles: ["Hardware engineer", "Industrial designer", "Accessibility tester"]
-  }
-];
+import { proposals } from "@/lib/domain/proposals";
 
 export default function ProposalsPage() {
   return (
@@ -44,30 +24,27 @@ export default function ProposalsPage() {
         <div className="mt-10 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
           {proposals.map((proposal) => (
             <article
-              key={proposal.title}
+              key={proposal.id}
               className="rounded-xl border border-slate-800 bg-slate-900 p-6"
             >
               <p className="text-sm text-cyan-400">{proposal.category}</p>
-              <h2 className="mt-3 text-xl font-semibold">{proposal.title}</h2>
-              <p className="mt-4 text-slate-300">
+
+              <h2 className="mt-3 text-xl font-semibold">
+                {proposal.title}
+              </h2>
+
+              <p className="mt-4 text-slate-300">{proposal.summary}</p>
+
+              <p className="mt-4 text-sm text-slate-400">
                 {proposal.supporters.toLocaleString()} supporters
               </p>
 
-              <div className="mt-5">
-                <p className="text-sm font-semibold text-slate-200">
-                  Needed roles
-                </p>
-
-                <ul className="mt-2 space-y-1 text-sm text-slate-400">
-                  {proposal.roles.map((role) => (
-                    <li key={role}>• {role}</li>
-                  ))}
-                </ul>
-              </div>
-
-              <button className="mt-6 w-full rounded-lg border border-cyan-500 px-4 py-2 text-cyan-300 hover:bg-cyan-500/10">
-                Support proposal
-              </button>
+              <Link
+                href={`/proposals/${proposal.id}`}
+                className="mt-6 block rounded-lg border border-cyan-500 px-4 py-2 text-center text-cyan-300 hover:bg-cyan-500/10"
+              >
+                View proposal
+              </Link>
             </article>
           ))}
         </div>
