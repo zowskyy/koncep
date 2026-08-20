@@ -1,0 +1,16 @@
+[33m5f95210[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m)[m Add project domain transition tests
+ .gitignore                     |   16 [32m+[m
+ docs/MVP.md                    |   39 [32m+[m
+ docs/PRODUCT.md                |   37 [32m+[m
+ eslint.config.mjs              |   12 [32m+[m
+ next-env.d.ts                  |    7 [32m+[m
+ package-lock.json              | 8384 [32m+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++[m
+ package.json                   |   29 [32m+[m
+ src/app/page.tsx               |   38 [32m+[m
+ src/app/proposals/new/page.tsx |  102 [32m+++[m
+ src/app/proposals/page.tsx     |   77 [32m++[m
+ src/lib/domain/project.test.ts |   16 [32m+[m
+ src/lib/domain/project.ts      |   45 [32m+[m
+ src/lib/validation/proposal.ts |   22 [32m+[m
+ tsconfig.json                  |   37 [32m+[m
+ 14 files changed, 8861 insertions(+)
