@@ -20,6 +20,7 @@ function Test-RiskyPath {
   $p = $Path.Replace('/', '\').TrimStart('\').ToLowerInvariant()
   $name = [System.IO.Path]::GetFileName($p).ToLowerInvariant()
   $ext = [System.IO.Path]::GetExtension($p).ToLowerInvariant()
+  if ($name -eq '.env.example') { return $false }
   if ($name -eq '.env' -or $name -like '.env.*') { return $true }
   if ($name -eq 'next-dev.log') { return $true }
   if ($ext -eq '.db' -or $ext -eq '.db-shm' -or $ext -eq '.db-wal') { return $true }
