@@ -22,11 +22,11 @@ try {
   Write-Host ("Current branch: {0}" -f $branch) -ForegroundColor Cyan
   git status
 
-  if ($staged.Trim().Length -ne 0) {
+  if (($staged | Out-String).Trim().Length -ne 0) {
     Write-Host "Refusing to push: you have staged changes." -ForegroundColor Red
     exit 1
   }
-  if ($unstaged.Trim().Length -ne 0) {
+  if (($unstaged | Out-String).Trim().Length -ne 0) {
     Write-Host "Refusing to push: you have unstaged tracked changes." -ForegroundColor Red
     exit 1
   }
