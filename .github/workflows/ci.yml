@@ -30,6 +30,9 @@ jobs:
       - name: Check (lint, typecheck, tests)
         run: npm run check
 
+      - name: Prepare fresh SQLite database directory
+        run: mkdir -p data
+
       - name: Apply database migrations (fresh SQLite)
         run: npm run db:migrate
 
