@@ -14,3 +14,12 @@ out/
 .env
 .env.*
 !.env.example
+
+# Local database artifacts (regenerated via db:migrate + db:seed)
+data/
+
+# Worker lab / automation logs
+.worker-lab/
+
+# Dev server log
+next-dev.log
