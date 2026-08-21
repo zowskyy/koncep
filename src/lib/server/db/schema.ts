@@ -51,3 +51,23 @@ export const proposalEvents = sqliteTable("proposal_events", {
   type: text("type").notNull(),
   createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull()
 });
+
+export const contributorInterests = sqliteTable(
+  "contributor_interests",
+  {
+    id: integer("id").primaryKey({ autoIncrement: true }),
+    proposalId: text("proposal_id")
+      .notNull()
+      .references(() => proposals.id),
+    role: text("role").notNull(),
+    memberId: text("member_id").notNull(),
+    createdAt: integer("created_at", { mode: "timestamp_ms" }).notNull()
+  },
+  (table) => [
+    uniqueIndex("contributor_interests_proposal_role_member_idx").on(
+      table.proposalId,
+      table.role,
+      table.memberId
+    )
+  ]
+);

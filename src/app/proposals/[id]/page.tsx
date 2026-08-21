@@ -10,6 +10,8 @@ import {
 } from "@/lib/server/proposals";
 import { ProposalTimeline } from "@/components/projects/proposal-timeline";
 import { getMemberId } from "@/lib/server/auth/member";
+import { ContributorInterestButton } from "@/components/projects/contributor-interest-button";
+import { listContributorInterests, type ContributorInterestView } from "@/lib/server/contributor-interest";
 import { db } from "@/lib/server/db";
 import { proposals } from "@/lib/server/db/schema";
 import { eq } from "drizzle-orm";
@@ -63,6 +65,15 @@ export default async function ProposalDetailPage({
     Boolean(memberId) &&
     ownership?.ownerMemberId === memberId;
 
+  const interests = isOwner ? listContributorInterests(proposal.id) : [];
+
+  const interestsByRole = new Map<string, ContributorInterestView[]>();
+  for (const interest of interests) {
+    const list = interestsByRole.get(interest.role) ?? [];
+    list.push(interest);
+    interestsByRole.set(interest.role, list);
+  }
+
   return (
     <main className="min-h-screen bg-slate-950 px-8 py-12 text-white">
       <div className="mx-auto max-w-4xl">
@@ -97,6 +108,23 @@ export default async function ProposalDetailPage({
               <li key={role}>&bull; {role}</li>
             ))}
           </ul>
+
+          {!isOwner && proposal.status !== "completed" ? (
+            <div className="mt-6 space-y-4">
+              {proposal.neededRoles.map((role) => (
+                <div
+                  key={role}
+                  className="flex flex-wrap items-center gap-3"
+                >
+                  <span className="text-slate-300">{role}</span>
+                  <ContributorInterestButton
+                    proposalId={proposal.id}
+                    role={role}
+                  />
+                </div>
+              ))}
+            </div>
+          ) : null}
 
           <div className="mt-10 border-t border-slate-800 pt-8">
             <SupportProgress
@@ -133,6 +161,37 @@ export default async function ProposalDetailPage({
               </p>
             )}
           </div>
+
+          {isOwner ? (
+            <div className="mt-10 border-t border-slate-800 pt-8">
+              <h2 className="text-2xl font-semibold">Interested contributors</h2>
+
+              {interests.length === 0 ? (
+                <p className="mt-4 text-slate-400">
+                  No contributors have expressed interest yet.
+                </p>
+              ) : (
+                <div className="mt-4 space-y-6">
+                  {Array.from(interestsByRole.entries()).map(([role, entries]) => (
+                    <div key={role}>
+                      <h3 className="text-lg font-medium text-cyan-200">
+                        {role}
+                      </h3>
+                      <ul className="mt-2 space-y-1 text-slate-300">
+                        {entries.map((entry) => (
+                          <li key={entry.memberId}>
+                            Member {entry.memberId.slice(0, 6)}
+                            {" · "}
+                            {entry.createdAt.toLocaleString()}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+          ) : null}
 
           <ProposalTimeline events={events} />
         </div>
