@@ -112,10 +112,21 @@ export default async function ProposalDetailPage({
             />
 
             {isOwner ? (
-              <StatusAdvanceButton
-                proposalId={proposal.id}
-                currentStatus={proposal.status}
-              />
+              <>
+                <StatusAdvanceButton
+                  proposalId={proposal.id}
+                  currentStatus={proposal.status}
+                />
+
+                {proposal.status === "draft" ? (
+                  <Link
+                    href={`/proposals/${proposal.id}/edit`}
+                    className="rounded-lg bg-cyan-400 px-5 py-3 text-center font-semibold text-slate-950"
+                  >
+                    Edit draft
+                  </Link>
+                ) : null}
+              </>
             ) : (
               <p className="text-sm text-slate-400">
                 Only the proposal owner can update its status.
