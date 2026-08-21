@@ -7,12 +7,12 @@
 .EXAMPLE
   pwsh automation/git/commit.ps1 -Message "Add contributor interest feature"
 #>
-$ErrorActionPreference = "Stop"
-
 param(
   [Parameter(Mandatory = $true)]
   [string]$Message
 )
+
+$ErrorActionPreference = "Stop"
 
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 Push-Location $repoRoot

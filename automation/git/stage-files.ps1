@@ -8,12 +8,12 @@
 .EXAMPLE
   pwsh automation/git/stage-files.ps1 -Files @("src/app/page.tsx","README.md")
 #>
-$ErrorActionPreference = "Stop"
-
 param(
   [Parameter(Mandatory = $true)]
   [string[]]$Files
 )
+
+$ErrorActionPreference = "Stop"
 
 function Test-RiskyPath {
   param([string]$Path)

@@ -8,12 +8,12 @@
 .EXAMPLE
   pwsh automation/checks/validate.ps1 -Migrate -Build
 #>
-$ErrorActionPreference = "Stop"
-
 param(
   [switch]$Build,
   [switch]$Migrate
 )
+
+$ErrorActionPreference = "Stop"
 
 $repoRoot = (Resolve-Path (Join-Path $PSScriptRoot "..\..")).Path
 Push-Location $repoRoot
