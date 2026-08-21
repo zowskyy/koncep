@@ -1,0 +1,1 @@
+ALTER TABLE `proposals` ADD `status` text DEFAULT 'draft' NOT NULL;

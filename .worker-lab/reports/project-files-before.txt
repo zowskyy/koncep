@@ -1,0 +1,23 @@
+﻿
+FullName                                                                      Length LastWriteTime       
+--------                                                                      ------ -------------       
+C:\Users\thewi\source\repos\koncep\src\app\globals.css                            24 8/20/2026 5:43:02 PM
+C:\Users\thewi\source\repos\koncep\src\app\layout.tsx                            383 8/20/2026 5:38:21 PM
+C:\Users\thewi\source\repos\koncep\src\app\page.tsx                             1146 8/20/2026 1:07:53 PM
+C:\Users\thewi\source\repos\koncep\src\app\proposals\page.tsx                   1804 8/20/2026 5:09:39 PM
+C:\Users\thewi\source\repos\koncep\src\app\proposals\new\actions.ts             2220 8/20/2026 5:32:28 PM
+C:\Users\thewi\source\repos\koncep\src\app\proposals\new\page.tsx               4161 8/20/2026 5:33:27 PM
+C:\Users\thewi\source\repos\koncep\src\app\proposals\[id]\page.tsx              1746 8/20/2026 5:49:30 PM
+C:\Users\thewi\source\repos\koncep\src\components\projects\support-button.tsx   1214 8/20/2026 5:49:30 PM
+C:\Users\thewi\source\repos\koncep\src\lib\domain\project.test.ts                552 8/20/2026 1:07:53 PM
+C:\Users\thewi\source\repos\koncep\src\lib\domain\project.ts                    1042 8/20/2026 1:07:53 PM
+C:\Users\thewi\source\repos\koncep\src\lib\domain\proposals.ts                  1790 8/20/2026 1:07:53 PM
+C:\Users\thewi\source\repos\koncep\src\lib\server\proposals.ts                  1721 8/20/2026 5:09:38 PM
+C:\Users\thewi\source\repos\koncep\src\lib\server\actions\support-proposal.ts   1167 8/20/2026 5:49:30 PM
+C:\Users\thewi\source\repos\koncep\src\lib\server\db\client.ts                   523 8/20/2026 1:27:10 PM
+C:\Users\thewi\source\repos\koncep\src\lib\server\db\index.ts                     58 8/20/2026 1:27:28 PM
+C:\Users\thewi\source\repos\koncep\src\lib\server\db\schema.ts                  1183 8/20/2026 1:23:32 PM
+C:\Users\thewi\source\repos\koncep\src\lib\validation\proposal.ts                565 8/20/2026 1:07:53 PM
+
+
+

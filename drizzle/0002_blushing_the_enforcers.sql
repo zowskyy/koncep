@@ -1,0 +1,1 @@
+ALTER TABLE `proposals` ADD `owner_member_id` text;

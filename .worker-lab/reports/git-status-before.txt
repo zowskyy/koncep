@@ -1,0 +1,19 @@
+﻿ M package-lock.json
+ M package.json
+ M src/app/proposals/[id]/page.tsx
+ M src/app/proposals/new/page.tsx
+ M src/app/proposals/page.tsx
+ M src/components/projects/support-button.tsx
+?? .worker-lab/
+?? data/
+?? docs/slice-2-db-wiring.md
+?? docs/slice-3-support.md
+?? drizzle.config.ts
+?? drizzle/
+?? next-dev.log
+?? postcss.config.mjs
+?? scripts/
+?? src/app/globals.css
+?? src/app/layout.tsx
+?? src/app/proposals/new/actions.ts
+?? src/lib/server/

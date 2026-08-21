@@ -1,0 +1,1 @@
+﻿No high-risk command patterns found by the basic scan.

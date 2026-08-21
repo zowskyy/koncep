@@ -1,45 +1,33 @@
-export const projectStatuses = [
+﻿export const projectStatuses = [
   "draft",
   "published",
-  "gathering_support",
-  "feasibility_review",
-  "team_forming",
-  "funding_ready",
-  "in_production",
+  "supported",
   "completed"
 ] as const;
 
 export type ProjectStatus = (typeof projectStatuses)[number];
 
-export const projectCategories = [
-  "games",
-  "film-animation",
-  "music-audio",
-  "publishing",
-  "software",
-  "education",
-  "research",
-  "events",
-  "physical-products",
-  "community"
-] as const;
-
-export type ProjectCategory = (typeof projectCategories)[number];
-
-const allowedTransitions: Record<ProjectStatus, ProjectStatus[]> = {
+const allowedTransitions: Record<ProjectStatus, readonly ProjectStatus[]> = {
   draft: ["published"],
-  published: ["gathering_support"],
-  gathering_support: ["feasibility_review"],
-  feasibility_review: ["team_forming"],
-  team_forming: ["funding_ready"],
-  funding_ready: ["in_production"],
-  in_production: ["completed"],
+  published: ["supported"],
+  supported: ["completed"],
   completed: []
 };
 
-export function canTransition(
-  from: ProjectStatus,
-  to: ProjectStatus
+export function canTransitionProjectStatus(
+  currentStatus: ProjectStatus,
+  nextStatus: ProjectStatus
 ): boolean {
-  return allowedTransitions[from].includes(to);
+  return allowedTransitions[currentStatus].includes(nextStatus);
+}
+
+export function assertProjectStatusTransition(
+  currentStatus: ProjectStatus,
+  nextStatus: ProjectStatus
+): void {
+  if (!canTransitionProjectStatus(currentStatus, nextStatus)) {
+    throw new Error(
+      `Cannot transition a project from "${currentStatus}" to "${nextStatus}".`
+    );
+  }
 }
