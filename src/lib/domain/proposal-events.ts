@@ -1,9 +1,9 @@
 ﻿export const proposalEventTypes = [
   "created",
   "updated",
-  "updated",
   "published",
   "community_backed",
+  "ceo_review",
   "completed"
 ] as const;
 

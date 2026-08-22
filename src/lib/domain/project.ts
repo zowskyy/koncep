@@ -2,6 +2,7 @@
   "draft",
   "published",
   "supported",
+  "ceo_review",
   "completed"
 ] as const;
 
@@ -10,7 +11,8 @@ export type ProjectStatus = (typeof projectStatuses)[number];
 const allowedTransitions: Record<ProjectStatus, readonly ProjectStatus[]> = {
   draft: ["published"],
   published: ["supported"],
-  supported: ["completed"],
+  supported: ["ceo_review"],
+  ceo_review: ["completed"],
   completed: []
 };
 

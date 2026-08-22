@@ -9,6 +9,7 @@ const eventLabels = {
   updated: "Proposal updated",
   published: "Proposal published",
   community_backed: "Community support threshold reached",
+  ceo_review: "Submitted for CEO review",
   completed: "Proposal completed"
 } as const;
 

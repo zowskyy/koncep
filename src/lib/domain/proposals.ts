@@ -2,6 +2,7 @@
   | "draft"
   | "published"
   | "supported"
+  | "ceo_review"
   | "completed";
 
 export type Proposal = {

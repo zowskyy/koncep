@@ -22,6 +22,10 @@ const nextStatusByCurrentStatus: Record<
     label: "Mark as supported"
   },
   supported: {
+    status: "ceo_review",
+    label: "Submit for CEO review"
+  },
+  ceo_review: {
     status: "completed",
     label: "Mark as completed"
   },
