@@ -26,9 +26,13 @@ function isProjectStatus(value: string): value is ProjectStatus {
 
 function eventTypeForStatus(
   status: ProjectStatus
-): "published" | "completed" | null {
+): "published" | "ceo_review" | "completed" | null {
   if (status === "published") {
     return "published";
+  }
+
+  if (status === "ceo_review") {
+    return "ceo_review";
   }
 
   if (status === "completed") {
